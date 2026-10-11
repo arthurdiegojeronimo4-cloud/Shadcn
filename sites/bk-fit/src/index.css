@@ -1,0 +1,193 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * BK FIT — paleta inspirada nas cores de fogo/grelha (vermelho chama,
+ * laranja brasa, marrom tostado, creme do pão) + um verde "fit" como
+ * sinal de performance/saúde.
+ */
+:root {
+  --radius: 1rem;
+  --background: oklch(0.965 0.018 80);
+  --foreground: oklch(0.29 0.07 40);
+  --card: oklch(0.99 0.008 80);
+  --card-foreground: oklch(0.29 0.07 40);
+  --popover: oklch(0.99 0.008 80);
+  --popover-foreground: oklch(0.29 0.07 40);
+  --primary: oklch(0.58 0.22 33);
+  --primary-foreground: oklch(0.98 0.01 80);
+  --secondary: oklch(0.92 0.04 70);
+  --secondary-foreground: oklch(0.32 0.08 40);
+  --muted: oklch(0.93 0.025 75);
+  --muted-foreground: oklch(0.48 0.05 45);
+  --accent: oklch(0.76 0.16 58);
+  --accent-foreground: oklch(0.25 0.07 40);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.87 0.03 70);
+  --input: oklch(0.87 0.03 70);
+  --ring: oklch(0.58 0.22 33);
+  --fit: oklch(0.62 0.17 145);
+  --fit-foreground: oklch(0.98 0.02 145);
+  --chart-1: oklch(0.58 0.22 33);
+  --chart-2: oklch(0.76 0.16 58);
+  --chart-3: oklch(0.62 0.17 145);
+  --chart-4: oklch(0.45 0.08 40);
+  --chart-5: oklch(0.85 0.1 85);
+  --sidebar: oklch(0.99 0.008 80);
+  --sidebar-foreground: oklch(0.29 0.07 40);
+  --sidebar-primary: oklch(0.58 0.22 33);
+  --sidebar-primary-foreground: oklch(0.98 0.01 80);
+  --sidebar-accent: oklch(0.93 0.025 75);
+  --sidebar-accent-foreground: oklch(0.29 0.07 40);
+  --sidebar-border: oklch(0.87 0.03 70);
+  --sidebar-ring: oklch(0.58 0.22 33);
+}
+
+.dark {
+  --background: oklch(0.17 0.025 40);
+  --foreground: oklch(0.95 0.02 80);
+  --card: oklch(0.22 0.03 40);
+  --card-foreground: oklch(0.95 0.02 80);
+  --popover: oklch(0.22 0.03 40);
+  --popover-foreground: oklch(0.95 0.02 80);
+  --primary: oklch(0.64 0.22 35);
+  --primary-foreground: oklch(0.98 0.01 80);
+  --secondary: oklch(0.28 0.035 40);
+  --secondary-foreground: oklch(0.95 0.02 80);
+  --muted: oklch(0.26 0.03 40);
+  --muted-foreground: oklch(0.72 0.03 70);
+  --accent: oklch(0.78 0.16 60);
+  --accent-foreground: oklch(0.2 0.04 40);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.64 0.22 35);
+  --fit: oklch(0.8 0.2 140);
+  --fit-foreground: oklch(0.2 0.05 140);
+  --chart-1: oklch(0.64 0.22 35);
+  --chart-2: oklch(0.78 0.16 60);
+  --chart-3: oklch(0.8 0.2 140);
+  --chart-4: oklch(0.7 0.05 60);
+  --chart-5: oklch(0.88 0.1 85);
+  --sidebar: oklch(0.22 0.03 40);
+  --sidebar-foreground: oklch(0.95 0.02 80);
+  --sidebar-primary: oklch(0.64 0.22 35);
+  --sidebar-primary-foreground: oklch(0.98 0.01 80);
+  --sidebar-accent: oklch(0.28 0.035 40);
+  --sidebar-accent-foreground: oklch(0.95 0.02 80);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.64 0.22 35);
+}
+
+@theme inline {
+  --font-sans: "Inter Variable", "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Anton", "Impact", ui-sans-serif, sans-serif;
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-fit: var(--fit);
+  --color-fit-foreground: var(--fit-foreground);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    @apply scroll-smooth;
+  }
+  body {
+    @apply bg-background font-sans text-foreground antialiased;
+  }
+}
+
+@utility font-display {
+  font-family: var(--font-display);
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+}
+
+/* Brilho de "brasa" atrás do hambúrguer do hero. */
+@utility bg-ember {
+  background-image:
+    radial-gradient(
+      60% 60% at 50% 45%,
+      color-mix(in oklch, var(--primary) 45%, transparent) 0%,
+      transparent 70%
+    ),
+    radial-gradient(
+      40% 40% at 70% 70%,
+      color-mix(in oklch, var(--accent) 35%, transparent) 0%,
+      transparent 70%
+    );
+}
+
+@utility bg-grid {
+  background-image:
+    linear-gradient(to right, var(--border) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--border) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
+}
+
+@theme {
+  --animate-marquee: marquee 30s linear infinite;
+  --animate-float: float 6s ease-in-out infinite;
+
+  @keyframes marquee {
+    to {
+      transform: translateX(calc(-50% - 1rem));
+    }
+  }
+
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0) rotate(-2deg);
+    }
+    50% {
+      transform: translateY(-12px) rotate(2deg);
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee,
+  .animate-float {
+    animation: none;
+  }
+}
